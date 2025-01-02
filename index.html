@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>freelance </title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"> <img src="https://images.pexels.com/photos/4274893/pexels-photo-4274893.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+            </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tâches</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Factures</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Paiements</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            
+            <div class="col-md-4">
+                <h3>Tâches</h3>
+                <div id="taskKanban">
+                    
+                    <div class="task-column" id="todo">
+                        <h4>À faire</h4>
+                        <ul id="todoList">
+                            
+                        </ul>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">Ajouter une tâche</button>
+                    </div>
+                    <div class="task-column" id="inProgress">
+                        <h4>En cours</h4>
+                        <ul id="inProgressList"></ul>
+                    </div>
+                    <div class="task-column" id="completed">
+                        <h4>Terminé</h4>
+                        <ul id="completedList"></ul>
+                    </div>
+                </div>
+            </div>
+
+           
+<div class="col-md-8">
+    <h3>Factures</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Montant</th>
+                <th>Échéance</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="invoiceList">
+            
+        </tbody>
+    </table>
+    
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createInvoiceModal">
+        Créer une facture
+    </button>
+</div>
+
+
+<div class="modal fade" id="createInvoiceModal" tabindex="-1" aria-labelledby="createInvoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createInvoiceModalLabel">Créer une facture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="clientName" class="form-label">Nom du client</label>
+                        <input type="text" class="form-control" id="clientName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Montant (€)</label>
+                        <input type="number" class="form-control" id="amount" step="0.01" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dueDate" class="form-label">Date d'échéance</label>
+                        <input type="date" class="form-control" id="dueDate" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary" id="saveInvoiceBtn">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+<footer class="mt-4 text-center">
+    <p>2024-2025</p>
+</footer>
+
